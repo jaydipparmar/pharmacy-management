@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Green & White Light Theme Palette */
+  --bg-primary: #f4fcf7;
+  --bg-secondary: #ffffff;
+  --glass-border: rgba(46, 213, 115, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+
+  --primary-color: #10ac84; /* Elegant Teal/Green */
+  --primary-hover: #0d8b6a;
+  --success-color: #1dd1a1;
+  --danger-color: #ff6b6b;
+  --warning-color: #feca57;
+  
+  --text-primary: #1e272e;
+  --text-secondary: #485460;
+  --text-inverse: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  /* subtle fresh leaf gradient background */
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(145, 40%, 94%, 1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(168, 60%, 90%, 0.5) 0, transparent 50%), 
+    radial-gradient(at 50% 100%, hsla(158, 50%, 88%, 0.4) 0, transparent 50%);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, h5 { font-weight: 600; letter-spacing: -0.02em; }
+.heading-large { font-size: 2.5rem; color: var(--text-primary); margin-bottom: 0.5rem; }
+.text-muted { color: var(--text-secondary); font-size: 0.95rem; }
+
+/* Glass Panel Component - Adjusted for bright clean look */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(16, 172, 132, 0.08); /* light green shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Inputs */
+.form-group { margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.form-label { font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); }
+.glass-input {
+  background: #ffffff;
+  border: 1px solid rgba(16, 172, 132, 0.3);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  color: var(--text-primary);
+  font-family: inherit; font-size: 1rem; transition: all 0.3s ease; width: 100%;
+}
+.glass-input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 4px rgba(16, 172, 132, 0.1); }
+
+/* Buttons */
+.btn-primary { background: linear-gradient(135deg, var(--success-color) 0%, var(--primary-color) 100%); color: var(--text-inverse); border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-family: inherit; font-size: 1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; display: inline-block; text-align: center; }
+.btn-primary.block { width: 100%; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(16, 172, 132, 0.3); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-danger { background: rgba(255, 107, 107, 0.1); color: var(--danger-color); border: 1px solid rgba(255, 107, 107, 0.3); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+.btn-danger:hover { background: var(--danger-color); color: white; }
+.btn-success { background: rgba(29, 209, 161, 0.1); color: var(--primary-hover); border: 1px solid rgba(29, 209, 161, 0.3); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+.btn-success:hover { background: var(--primary-color); color: white; }
+
+/* App Layout */
+.app-container { display: flex; min-height: 100vh; }
+.sidebar { width: 250px; background: var(--glass-bg); border-right: 1px solid var(--glass-border); backdrop-filter: blur(12px); display: flex; flex-direction: column; padding: 2rem 1rem; }
+.sidebar-brand { font-size: 1.5rem; font-weight: 700; margin-bottom: 2.5rem; padding: 0 1rem; display: flex; align-items: center; gap: 0.5rem; color: var(--primary-color); }
+.nav-item { display: flex; align-items: center; gap: 1rem; padding: 1rem; color: var(--text-secondary); text-decoration: none; border-radius: 12px; transition: all 0.2s ease; margin-bottom: 0.5rem; font-weight: 500; }
+.nav-item:hover { background: rgba(16, 172, 132, 0.05); color: var(--primary-color); }
+.nav-item.active { background: rgba(16, 172, 132, 0.1); color: var(--primary-color); border: 1px solid rgba(16, 172, 132, 0.2); }
+.main-content { flex: 1; padding: 2.5rem 3rem; overflow-y: auto; }
+
+/* Tables */
+.glass-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.95rem; }
+.glass-table th { text-align: left; padding: 1rem; color: var(--text-secondary); font-weight: 600; border-bottom: 2px solid var(--glass-border); }
+.glass-table td { padding: 1rem; border-bottom: 1px solid rgba(16, 172, 132, 0.1); color: var(--text-primary); }
+.glass-table tr:hover { background: rgba(16, 172, 132, 0.03); }
+
+/* Badges */
+.badge { padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block; }
+.badge-danger { background: rgba(255, 107, 107, 0.15); color: var(--danger-color); }
+.badge-warning { background: rgba(254, 202, 87, 0.2); color: #d35400; }
+.badge-success { background: rgba(29, 209, 161, 0.15); color: var(--primary-hover); }
+
+/* Utilities */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+.stat-card { padding: 1.5rem; border-top: 4px solid var(--primary-color); }
+.stat-value { font-size: 2.5rem; font-weight: 700; margin-top: 0.5rem; color: var(--text-primary); }
+.topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; }
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+.gap-2 { gap: 0.5rem; } 
+.gap-4 { gap: 1rem; }
+
+/* Home Page Specifics */
+.home-hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+.home-title { font-size: 3.5rem; font-weight: 800; color: var(--primary-color); margin-bottom: 1rem; letter-spacing: -1px; }
+.home-subtitle { font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem auto; list-style: 1.6; }
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; max-width: 1000px; }
+.feature-card { padding: 2rem; text-align: center; }
+.feature-icon { color: var(--primary-color); margin-bottom: 1rem; }
