@@ -1,0 +1,7 @@
+{
+  "buildCommand": "mvn clean install -DskipTests",
+  "startCommand": "java -jar target/smart-pharmacy-0.0.1-SNAPSHOT.jar",
+  "env": {
+    "JAVA_VERSION": "21"
+  }
+}+
